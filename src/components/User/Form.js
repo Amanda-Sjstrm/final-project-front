@@ -60,10 +60,10 @@ export const Form = ({ path }) => {
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState("login");
   const dispatch = useDispatch();
-  const accessToken = useSelector((store) => store.user.accessToken);
+  const accessToken = useSelector((data) => data.user.accessToken);
 
   const navigate = useNavigate();
-  const error = useSelector((store) => store.user.error);
+  const error = useSelector((data) => data.user.error);
 
   useEffect(() => {
     if (accessToken) {
@@ -97,6 +97,9 @@ export const Form = ({ path }) => {
           dispatch(user.actions.setError(data.response));
           console.log("fail");
         }
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
