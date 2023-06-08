@@ -23,9 +23,6 @@ export const user = createSlice({
     setAccessToken: (state, action) => {
       state.accessToken = action.payload;
     },
-    setProfile: (state, action) => {
-      state.profile = action.payload;
-    },
     signOut: () => {
       return initialState;
     },
