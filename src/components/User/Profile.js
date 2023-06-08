@@ -23,7 +23,7 @@ export const Profile = () => {
 
   return (
     <div>
-      <h2>Hello {username}!</h2>
+      <h2>Hello {username}!!</h2>
       <button type="button" onClick={onLogOutButtonClick}>
         Logout
       </button>
