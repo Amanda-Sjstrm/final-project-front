@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { user } from "../../reducers/user";
 import { API_URL } from "../../utils/utils";
-import { Switch, FormControlLabel } from "@mui/material";
+import { Switch, FormControlLabel, TextField } from "@mui/material";
 import { FormContainer, RightFormImage, LeftFormGroup, FormTitle, FormGroup, FormGroupSwitch, FormButton, Error } from "./StyledForm";
 import image from "../../images/login-bg.png";
 
@@ -81,18 +81,18 @@ export const Form = () => {
         <form onSubmit={handleSubmit}>
           <FormGroup>
             <h3 htmlFor="username">Username:</h3>
-            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <TextField required fullWidth id="username" label="Username" name="username" autoComplete="username" value={username} onChange={(e) => setUsername(e.target.value)} />
           </FormGroup>
           <FormGroup>
             <h3 htmlFor="password">Password:</h3>
-            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <TextField required fullWidth name="password" label="Password" type="password" id="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </FormGroup>
           <FormButton type="submit">{btnText}</FormButton>
           {loading && <div>Loading...</div>}
         </form>
         <FormGroupSwitch>
           <p>Login</p>
-          <div>
+          <div className="styled-switch">
             <FormControlLabel control={<Switch checked={mode === "register"} onChange={handleFormTypeChange} />} />
           </div>
           <p>Register</p>
