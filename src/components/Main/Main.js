@@ -6,7 +6,11 @@ import leftMountain from "../../images/bg-3.png";
 import rightMountain from "../../images/bg-2.png";
 import skyBackground from "../../images/bg-4.png";
 import frontBackground from "../../images/bg-1.png";
+import { List } from "../List/List";
 import { Map } from "../Map/Map";
+import { MapHeader } from "../MapHeader/MapHeader";
+import { PlaceDetails } from "../PlaceDetails/PlaceDetails";
+import { CssBaseline, Grid } from "@mui/material";
 
 export const Main = () => {
   useEffect(() => {
@@ -57,7 +61,19 @@ export const Main = () => {
         <img src={frontBackground} alt="foreground" id="front" />
       </section>
       <div className="sec"></div>
-      <Map />
+
+      {/* <CssBaseline /> */}
+      {/* This is some pre-set css, not sure i need it */}
+
+      <MapHeader />
+      <Grid container spacing={3} style={{ width: "100%" }}>
+        <Grid item xs={12} md={4}>
+          <List />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Map />
+        </Grid>
+      </Grid>
     </StyledMain>
   );
 };
