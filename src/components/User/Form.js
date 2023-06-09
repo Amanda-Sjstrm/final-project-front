@@ -3,77 +3,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { user } from "../../reducers/user";
 import { API_URL } from "../../utils/utils";
-import { Switch, FormControlLabel, styled } from "@mui/material";
+import { Switch, FormControlLabel } from "@mui/material";
 import { FormContainer, RightFormImage, LeftFormGroup, FormTitle, FormGroup, FormGroupSwitch, FormButton, Error } from "./StyledForm";
 import image from "../../images/login-bg.png";
 
-// Switch styled with help from 'https://mui.com/material-ui/react-switch/'
-const StyledSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />)(({ theme }) => ({
-  width: 50,
-  height: 26,
-  padding: 0,
-  "& .MuiSwitch-switchBase": {
-    padding: 0,
-    margin: 2,
-    transitionDuration: "300ms",
-    "&.Mui-checked": {
-      transform: "translateX(24px)",
-      color: "#fff",
-      "& + .MuiSwitch-track": {
-        backgroundColor: theme.palette.mode === "dark" ? "#6873c3" : "#6873c3",
-        opacity: 1,
-        border: 0,
-      },
-      "&.Mui-disabled + .MuiSwitch-track": {
-        opacity: 0.5,
-      },
-    },
-    "&.Mui-focusVisible .MuiSwitch-thumb": {
-      color: "#6873c3",
-      border: "6px solid #fff",
-    },
-    "&.Mui-disabled .MuiSwitch-thumb": {
-      color: theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600],
-    },
-    "&.Mui-disabled + .MuiSwitch-track": {
-      opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
-    },
-  },
-  "& .MuiSwitch-thumb": {
-    boxSizing: "border-box",
-    width: 22,
-    height: 22,
-  },
-  "& .MuiSwitch-track": {
-    borderRadius: 26 / 2,
-    backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
-    opacity: 1,
-    transition: theme.transitions.create(["background-color"], {
-      duration: 400,
-    }),
-  },
-}));
-
-export const Form = ({ path }) => {
+export const Form = () => {
+  // State variables for login and registration
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState("login");
-  const dispatch = useDispatch();
-  const accessToken = useSelector((data) => data.user.accessToken);
+  const [loading, setLoading] = useState(false);
 
+  // Redux hooks
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const accessToken = useSelector((data) => data.user.accessToken);
   const error = useSelector((data) => data.user.error);
 
+  // When user loggs in redirect to profile page
   useEffect(() => {
     if (accessToken) {
       navigate("/profile");
     }
   }, [accessToken, navigate]);
 
+  // Handle login form submit
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
+
+    // Prepare request options
     const options = {
       method: "POST",
       headers: {
@@ -81,16 +40,20 @@ export const Form = ({ path }) => {
       },
       body: JSON.stringify({ username: username, password: password }),
     };
+
+    // Send login request to the server
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          // Update user state with access token, username, and user ID
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setUsername(data.response.username));
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setError(null));
           console.log("success!");
         } else {
+          // Handle login error
           dispatch(user.actions.setAccessToken(null));
           dispatch(user.actions.setUsername(null));
           dispatch(user.actions.setUserId(null));
@@ -104,7 +67,8 @@ export const Form = ({ path }) => {
   };
 
   const handleFormTypeChange = () => {
-    setMode(mode === "login" ? "register" : "login");
+    console.log("Switch toggled");
+    setMode((prevMode) => (prevMode === "login" ? "register" : "login"));
   };
 
   const btnText = mode === "register" ? "Register" : "Login";
@@ -128,9 +92,9 @@ export const Form = ({ path }) => {
         </form>
         <FormGroupSwitch>
           <p>Login</p>
-          <StyledSwitch>
+          <div>
             <FormControlLabel control={<Switch checked={mode === "register"} onChange={handleFormTypeChange} />} />
-          </StyledSwitch>
+          </div>
           <p>Register</p>
         </FormGroupSwitch>
         {error && <Error>Unable to login. Please make sure you're registered.</Error>}

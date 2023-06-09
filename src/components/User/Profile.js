@@ -8,6 +8,8 @@ export const Profile = () => {
   const accessToken = useSelector((data) => data.user.accessToken);
   const username = useSelector((data) => data.user.username);
   const navigate = useNavigate();
+
+  // If user is not logged in, redirect to login page
   useEffect(() => {
     if (!accessToken) {
       navigate("/login");
