@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { user } from "../../reducers/user";
 import { API_URL } from "../../utils/utils";
 import { Switch, FormControlLabel, TextField } from "@mui/material";
-import { FormContainer, RightFormImage, LeftFormGroup, FormTitle, FormGroup, FormGroupSwitch, FormButton, Error } from "./StyledForm";
+import { FormContainer, RightFormImage, LeftFormGroup, FormTitle, FormGroup, FormGroupSwitch, FormButton, StyledLink, Error } from "./StyledForm";
 import image from "../../images/login-bg.png";
 
 export const Form = () => {
@@ -98,6 +98,7 @@ export const Form = () => {
           <p>Register</p>
         </FormGroupSwitch>
         {error && <Error>Unable to login. Please make sure you're registered.</Error>}
+        <StyledLink to="/">Back to main page</StyledLink>
       </LeftFormGroup>
     </FormContainer>
   );

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { user } from "../../reducers/user";
+import { ProfileContainer, ProfileHeading, ProfilePart, LogoutButton } from "../User/StyledProfile";
 
 export const Profile = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,18 @@ export const Profile = () => {
     dispatch(user.actions.setUsername(null));
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
+    navigate("/");
   };
 
   return (
-    <div>
-      <h2>Hello {username}!!</h2>
-      <button type="button" onClick={onLogOutButtonClick}>
+    <ProfileContainer>
+      <ProfileHeading>Hello {username}!</ProfileHeading>
+      <ProfilePart>
+        <p>This is where i'd like to add personal information like a profile picture, hiking trails, maybe photos, friend requests etc.</p>
+      </ProfilePart>
+      <LogoutButton type="button" onClick={onLogOutButtonClick}>
         Logout
-      </button>
-    </div>
+      </LogoutButton>
+    </ProfileContainer>
   );
 };

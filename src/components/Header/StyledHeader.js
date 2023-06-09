@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
 import styled from "styled-components";
 
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   #header {
     position: absolute;
     top: 0;
@@ -13,6 +11,8 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     z-index: 10000;
+    /* background: rgba(255, 255, 255, 0.8);
+    height: 1.5em; */
   }
 
   .logo {
@@ -46,28 +46,3 @@ const StyledHeader = styled.header`
     color: #fff;
   }
 `;
-
-export const Header = () => {
-  return (
-    <StyledHeader>
-      <div id="header">
-        <a href="#" className="logo">
-          Stigvisaren
-        </a>
-        <ul>
-          <li>
-            <a href="#" className="active">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
-        </ul>
-      </div>
-    </StyledHeader>
-  );
-};

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const FormContainer = styled.div`
   display: flex;
@@ -69,6 +70,15 @@ export const FormGroupSwitch = styled.div`
   p {
     font-size: 1.2em;
     margin: 10px;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 

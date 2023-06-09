@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { user } from "./reducers/user";
-import { Main } from "./components/Main";
+import { Main } from "./components/Main/Main";
 import { Form } from "./components/User/Form";
 import { Profile } from "./components/User/Profile";
 
