@@ -21,7 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # youtube tutorial
-/List
+/src/components/List
 ../src/Map
 ../src/MapHeader
 ../src/PlaceDetails
