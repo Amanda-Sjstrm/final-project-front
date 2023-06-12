@@ -5,6 +5,7 @@ import leftMountain from "../../images/bg-3.png";
 import rightMountain from "../../images/bg-2.png";
 import skyBackground from "../../images/bg-4.png";
 import frontBackground from "../../images/bg-1.png";
+import { Hikes } from "../Hikes/Hikes";
 
 export const Main = () => {
   // Parallax Scroll effect
@@ -15,7 +16,6 @@ export const Main = () => {
       const sky = document.getElementById("sky");
       const left = document.getElementById("left");
       const right = document.getElementById("right");
-      const btn = document.getElementById("btn");
       const front = document.getElementById("front");
       const header = document.getElementById("header");
 
@@ -23,7 +23,6 @@ export const Main = () => {
       sky.style.top = `${value * -1}px`;
       left.style.left = `${value * -1.5}px`;
       right.style.left = `${value * 2}px`;
-      btn.style.marginTop = `${value * 0.5}px`;
       front.style.top = `${value * 0.12}px`;
       header.style.top = `${value * 0.8}px`;
     };
@@ -37,25 +36,23 @@ export const Main = () => {
   }, []);
 
   return (
-    <StyledMain>
-      <section>
-        <Header />
-        <img src={skyBackground} alt="sky background" id="sky" />
-        <h2 id="text">
-          <span>It's time for a new</span>
-          <br />
-          Adventure
-        </h2>
-        <img src={leftMountain} alt="left backgrund mountain" id="left" />
-        <img src={rightMountain} alt="right backgrund mountain" id="right" />
-
-        <a href="#" id="btn">
-          Explore
-        </a>
-
-        <img src={frontBackground} alt="foreground" id="front" />
-      </section>
-      <div className="sec"></div>
-    </StyledMain>
+    <>
+      <StyledMain>
+        <section>
+          <Header />
+          <img src={skyBackground} alt="sky background" id="sky" />
+          <h2 id="text">
+            <span>It's time for a new</span>
+            <br />
+            Adventure
+          </h2>
+          <img src={leftMountain} alt="left backgrund mountain" id="left" />
+          <img src={rightMountain} alt="right backgrund mountain" id="right" />
+          <img src={frontBackground} alt="foreground" id="front" />
+        </section>
+        <div className="sec"></div>
+      </StyledMain>
+      <Hikes />
+    </>
   );
 };
