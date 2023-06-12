@@ -22,6 +22,6 @@ yarn-error.log*
 
 # youtube tutorial
 /src/components/List
-../src/Map
-../src/MapHeader
-../src/PlaceDetails
+/src/components/Map
+/src/components/MapHeader
+/src/components/PlaceDetails
