@@ -8,7 +8,6 @@ import frontBackground from "../../images/bg-1.png";
 import { Hikes } from "../Hikes/Hikes";
 import { List } from "../List/List";
 import { Map } from "../Map/Map";
-import { MapHeader } from "../MapHeader/MapHeader";
 import { PlaceDetails } from "../PlaceDetails/PlaceDetails";
 import { CssBaseline, Grid } from "@mui/material";
 
@@ -40,12 +39,12 @@ export const Main = () => {
 
   // useEffect(() => {
   //   setIsLoading(true);
-  //   getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+  //   getPlacesData(bounds.sw, bounds.ne).then((data) => {
   //     setPlaces(data);
   //     setFilteredPlaces([]);
   //     setIsLoading(false);
   //   });
-  // }, [type, coordinates, bounds]);
+  // }, [coordinates, bounds]);
 
   // Parallax Scroll effect
   useEffect(() => {
