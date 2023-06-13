@@ -53,7 +53,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
   background-color: var(--neutralWhite);
   width: 100%;
   padding: 0px 0px 10px;
