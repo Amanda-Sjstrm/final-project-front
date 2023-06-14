@@ -70,6 +70,7 @@ export const StyledMain = styled.section`
 
 export const Grid = styled.div`
   display: flex;
-
-  width: 100%;
+  justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
 `;

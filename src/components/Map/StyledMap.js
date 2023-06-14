@@ -3,7 +3,7 @@ import { Typography, Paper } from "@material-ui/core";
 
 export const MapContainer = styled.div`
   height: 80vh;
-  width: 90%;
+  width: 100%;
 `;
 
 export const MarkerContainer = styled.div`

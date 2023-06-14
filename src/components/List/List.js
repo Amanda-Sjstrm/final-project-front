@@ -37,6 +37,7 @@ export const List = ({ places, childClicked, isLoading }) => {
                       category: place.category,
                       website: place.website,
                       phone: place.phone,
+                      address: place.address,
                     }}
                   />
                 </Grid>

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const Container = styled.div`
   padding-left: 30px;
-  width: 70%;
+  width: 80%;
 `;
 
 export const LoadingContainer = styled.div`
@@ -20,8 +20,13 @@ export const FormContainer = styled.div`
 
 export const ListContainer = styled.div`
   height: 55vh;
-  width: 40vw;
-  overflow: auto;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
 `;
 
 export default makeStyles((theme) => ({
