@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { Button } from "../Button";
 
 export const HikeSection = styled.section`
-  background-color: var(--primaryWhite);
+  background-color: #f5f5f5;
   padding: 133px 16px;
 
   @media (min-width: 668px) {
-    background-color: var(--neutralWhite);
+    background-color: #fff;
     padding: 0 90px;
     padding-bottom: 197px;
   }
@@ -19,8 +19,8 @@ export const TextH2 = styled.h2`
 `;
 
 export const HikeSelect = styled.select`
-  background-color: var(--primaryWhite);
-  color: var(--neutralBlack);
+  background-color: #f5f5f5;
+  color: #000;
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 24px;
@@ -34,7 +34,7 @@ export const HikeSelect = styled.select`
   }
 
   @media (min-width: 668px) {
-    background-color: var(--neutralWhite);
+    background-color: #fff;
   }
 `;
 
@@ -54,7 +54,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--neutralWhite);
+  background-color: #fff;
   width: 100%;
   padding: 0px 0px 10px;
   gap: 16px;
@@ -70,16 +70,16 @@ export const Card = styled.div`
     &:hover {
       filter: none;
       ${Button} {
-        background-color: var(--primaryBlue);
-        color: var(--neutralWhite);
+        background-color: #fac65d;
+        color: #fff;
       }
     }
 
     &:active {
       filter: none;
       ${Button} {
-        background-color: var(--secondaryBlue);
-        color: var(--neutralWhite);
+        background-color: #e39f49;
+        color: #fff;
       }
     }
   }

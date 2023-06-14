@@ -67,3 +67,9 @@ export const StyledMain = styled.section`
     background: #fff;
   }
 `;
+
+export const Grid = styled.div`
+  display: flex;
+
+  width: 100%;
+`;

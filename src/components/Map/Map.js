@@ -11,7 +11,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
   return (
     <MapContainer>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "MY API KEY" }}
+        bootstrapURLKeys={{ key: "KEY" }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
@@ -34,7 +34,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
                 </MapTypography>
                 <MapPointer
                   className="pointer"
-                  src={place.photo ? place.photo.images.large.url : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"}
+                  src={place.photo ? place.photo : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"}
                   alt={place.name}
                 />
                 <Rating name="read-only" size="small" value={Number(place.rating)} readOnly />

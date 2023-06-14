@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 
 export const Container = styled.div`
-  padding: 25px;
+  padding-left: 30px;
+  width: 70%;
 `;
 
 export const LoadingContainer = styled.div`
@@ -18,12 +19,12 @@ export const FormContainer = styled.div`
 `;
 
 export const ListContainer = styled.div`
-  height: 75vh;
+  height: 55vh;
+  width: 40vw;
   overflow: auto;
 `;
 
 export default makeStyles((theme) => ({
-  // Your existing makeStyles styles go here
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,

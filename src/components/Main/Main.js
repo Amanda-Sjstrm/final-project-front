@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../Header/Header";
-import { StyledMain } from "./StyledMain";
+import { StyledMain, Grid } from "./StyledMain";
 import leftMountain from "../../images/bg-3.png";
 import rightMountain from "../../images/bg-2.png";
 import skyBackground from "../../images/bg-4.png";
@@ -8,8 +8,6 @@ import frontBackground from "../../images/bg-1.png";
 import { Hikes } from "../Hikes/Hikes";
 import { List } from "../List/List";
 import { Map } from "../Map/Map";
-import { PlaceDetails } from "../PlaceDetails/PlaceDetails";
-import { CssBaseline, Grid } from "@mui/material";
 
 import { getPlacesData } from "../../api";
 
@@ -37,14 +35,14 @@ export const Main = () => {
   //   setFilteredPlaces(filteredPlaces);
   // }, [rating]);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   getPlacesData(bounds.sw, bounds.ne).then((data) => {
-  //     setPlaces(data);
-  //     setFilteredPlaces([]);
-  //     setIsLoading(false);
-  //   });
-  // }, [coordinates, bounds]);
+  useEffect(() => {
+    setIsLoading(true);
+    getPlacesData(bounds.sw, bounds.ne).then((data) => {
+      setPlaces(data);
+      setFilteredPlaces([]);
+      setIsLoading(false);
+    });
+  }, [coordinates, bounds]);
 
   // Parallax Scroll effect
   useEffect(() => {
@@ -91,7 +89,7 @@ export const Main = () => {
         <div className="sec"></div>
       </StyledMain>
       <Hikes />
-      <Grid container spacing={3} style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <Grid container spacing={3}>
         <Grid item xs={12} md={4}>
           <List places={filteredPlaces.length ? filteredPlaces : places} childClicked={childClicked} isLoading={isLoading} type={type} setType={setType} rating={rating} setRating={setRating} />
         </Grid>
