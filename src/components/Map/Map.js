@@ -3,7 +3,6 @@ import GoogleMapReact from "google-map-react";
 import { MapContainer, MarkerContainer, MapPaper, MapTypography, MapPointer } from "./StyledMap";
 import { LocationOnOutlined } from "@material-ui/icons";
 import { useMediaQuery } from "@material-ui/core";
-import GOOGLE_API from "./apikey.js";
 
 export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked }) => {
   const isDesktop = useMediaQuery("(min-width:600px)");
@@ -11,7 +10,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
   return (
     <MapContainer>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: GOOGLE_API }}
+        bootstrapURLKeys={{ key: process.env.GOOGE_API }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
