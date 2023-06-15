@@ -20,7 +20,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# youtube tutorial
-/src/components/MapHeader
-/src/components/PlaceDetails
-/src/api
+.env

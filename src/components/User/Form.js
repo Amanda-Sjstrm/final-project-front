@@ -71,34 +71,34 @@ export const Form = () => {
     setMode((prevMode) => (prevMode === "login" ? "register" : "login"));
   };
 
-  const btnText = mode === "register" ? "Register" : "Login";
+  const btnText = mode === "register" ? "Registrera" : "Logga in";
 
   return (
     <FormContainer>
       <RightFormImage src={image} alt="Image" />
       <LeftFormGroup>
-        <FormTitle>Login or register a new user</FormTitle>
+        <FormTitle>Logga in eller registrera ny användare</FormTitle>
         <form onSubmit={handleSubmit}>
           <FormGroup>
-            <h3 htmlFor="username">Username:</h3>
+            <h3 htmlFor="username">Användarnamn:</h3>
             <TextField required fullWidth id="username" label="Username" name="username" autoComplete="username" value={username} onChange={(e) => setUsername(e.target.value)} />
           </FormGroup>
           <FormGroup>
-            <h3 htmlFor="password">Password:</h3>
+            <h3 htmlFor="password">Lösenord:</h3>
             <TextField required fullWidth name="password" label="Password" type="password" id="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </FormGroup>
           <FormButton type="submit">{btnText}</FormButton>
-          {loading && <div>Loading...</div>}
+          {loading && <div>Laddar...</div>}
         </form>
         <FormGroupSwitch>
-          <p>Login</p>
+          <p>Logga in</p>
           <div className="styled-switch">
             <FormControlLabel control={<Switch checked={mode === "register"} onChange={handleFormTypeChange} />} />
           </div>
-          <p>Register</p>
+          <p>Registrera</p>
         </FormGroupSwitch>
-        {error && <Error>Unable to login. Please make sure you're registered.</Error>}
-        <StyledLink to="/">Back to main page</StyledLink>
+        {error && <Error>Det gick inte att logga in. Tänk på att registrera dig om du är ny 🙂</Error>}
+        <StyledLink to="/">Tillbaka till startsidan</StyledLink>
       </LeftFormGroup>
     </FormContainer>
   );

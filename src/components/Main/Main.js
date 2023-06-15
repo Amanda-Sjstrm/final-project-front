@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../Header/Header";
-import { StyledMain, Grid } from "./StyledMain";
+import { StyledMain, MapWrapper } from "./StyledMain";
 import leftMountain from "../../images/bg-3.png";
 import rightMountain from "../../images/bg-2.png";
 import skyBackground from "../../images/bg-4.png";
@@ -8,6 +8,8 @@ import frontBackground from "../../images/bg-1.png";
 import { Hikes } from "../Hikes/Hikes";
 import { List } from "../List/List";
 import { Map } from "../Map/Map";
+import { Info } from "../Info/Info";
+import { Grid } from "@mui/material";
 
 import { getPlacesData } from "../../api";
 
@@ -29,11 +31,6 @@ export const Main = () => {
       setCoordinates({ lat: latitude, lng: longitude });
     });
   }, []);
-
-  // useEffect(() => {
-  //   const filteredPlaces = places.filter((place) => place.rating > rating);
-  //   setFilteredPlaces(filteredPlaces);
-  // }, [rating]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -78,9 +75,9 @@ export const Main = () => {
           <Header setCoordinates={setCoordinates} />
           <img src={skyBackground} alt="sky background" id="sky" />
           <h2 id="text">
-            <span>It's time for a new</span>
+            <span>Ska vi gå på</span>
             <br />
-            Adventure
+            Promenad?
           </h2>
           <img src={leftMountain} alt="left backgrund mountain" id="left" />
           <img src={rightMountain} alt="right backgrund mountain" id="right" />
@@ -88,15 +85,16 @@ export const Main = () => {
         </section>
         <div className="sec"></div>
       </StyledMain>
-      <Hikes />
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
+      <Info />
+      <MapWrapper>
+        <Grid item xs={12} md={5}>
           <List places={filteredPlaces.length ? filteredPlaces : places} childClicked={childClicked} isLoading={isLoading} type={type} setType={setType} rating={rating} setRating={setRating} />
         </Grid>
         <Grid item xs={12} md={8}>
           <Map setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates} places={filteredPlaces.length ? filteredPlaces : places} setChildClicked={setChildClicked} />
         </Grid>
-      </Grid>
+      </MapWrapper>
+      <Hikes />
     </>
   );
 };

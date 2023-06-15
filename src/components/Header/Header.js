@@ -12,11 +12,11 @@ export const Header = () => {
         <ul>
           <li>
             <a href="#" className="active">
-              Home
+              Hem
             </a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="#">Om</a>
           </li>
           <li>
             <a href="/login">Login</a>

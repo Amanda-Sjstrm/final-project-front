@@ -27,12 +27,12 @@ export const Profile = () => {
 
   return (
     <ProfileContainer>
-      <ProfileHeading>Hello {username}!</ProfileHeading>
+      <ProfileHeading>Hej {username}!</ProfileHeading>
       <ProfilePart>
-        <p>This is where i'd like to add personal information like a profile picture, hiking trails, maybe photos, friend requests etc.</p>
+        <p>Detta är din personliga sida.</p>
       </ProfilePart>
       <LogoutButton type="button" onClick={onLogOutButtonClick}>
-        Logout
+        Logga ut
       </LogoutButton>
     </ProfileContainer>
   );

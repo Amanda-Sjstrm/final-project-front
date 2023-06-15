@@ -4,6 +4,7 @@ import { Button } from "../Button";
 export const HikeSection = styled.section`
   background-color: #f5f5f5;
   padding: 133px 16px;
+  margin-top: 7em;
 
   @media (min-width: 668px) {
     background-color: #fff;

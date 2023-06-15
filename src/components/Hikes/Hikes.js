@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { HikeSection, TextH2, HikeSelect, CardsContainer, Card, CardImg, CardH3, CardH4 } from "./StyledHikes";
 

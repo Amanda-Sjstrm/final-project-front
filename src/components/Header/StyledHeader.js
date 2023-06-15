@@ -11,8 +11,6 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     z-index: 10000;
-    /* background: rgba(255, 255, 255, 0.8);
-    height: 1.5em; */
   }
 
   .logo {

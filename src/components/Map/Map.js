@@ -10,12 +10,12 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
   return (
     <MapContainer>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "KEY" }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
-        options={""}
+        options={{ disableDefaultUI: true, zoomControl: true }}
         onChange={(e) => {
           setCoordinates({ lat: e.center.lat, lng: e.center.lng });
           setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
@@ -31,11 +31,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
                 <MapTypography variant="subtitle2" gutterBottom>
                   {place.name}
                 </MapTypography>
-                <MapPointer
-                  className="pointer"
-                  src={place.photo ? place.photo : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"}
-                  alt={place.name}
-                />
+                <MapPointer className="pointer" src={place.photo} alt={place.name} />
               </MapPaper>
             )}
           </MarkerContainer>
