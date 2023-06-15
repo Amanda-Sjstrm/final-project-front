@@ -10,7 +10,7 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
   return (
     <MapContainer>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.GOOGE_API }}
+        bootstrapURLKeys={{ key: process.env.GOOGLE_API }}
         defaultCenter={coordinates}
         center={coordinates}
         defaultZoom={14}
