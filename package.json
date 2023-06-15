@@ -25,13 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
   },
   "browserslist": {
     "production": [
@@ -45,8 +40,8 @@
       "last 1 safari version"
     ]
   },
-  "description": "I'm planning to create a web app called that will allow users to search for hiking trails on a map, save routes they like, and share photos of their hikes.",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "eslint-plugin-flowtype": "^8.0.3",
+    "react-scripts": "5.0.1"
+  }
 }
