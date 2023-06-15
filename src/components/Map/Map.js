@@ -22,20 +22,25 @@ export const Map = ({ setCoordinates, setBounds, coordinates, places, setChildCl
         }}
         onChildClick={(child) => setChildClicked(child)}
       >
-        {places?.map((place, i) => (
-          <MarkerContainer lat={Number(place.latitude)} lng={Number(place.longitude)} key={i}>
-            {!isDesktop ? (
-              <LocationOnOutlined color="primary" fontSize="large" />
-            ) : (
-              <MapPaper elevation={3} style={{ width: 150 }}>
-                <MapTypography variant="subtitle2" gutterBottom>
-                  {place.name}
-                </MapTypography>
-                <MapPointer className="pointer" src={place.photo} alt={place.name} />
-              </MapPaper>
-            )}
-          </MarkerContainer>
-        ))}
+        {places?.map((place, i) => {
+          if (place && place.latitude && place.longitude) {
+            return (
+              <MarkerContainer lat={Number(place.latitude)} lng={Number(place.longitude)} key={i}>
+                {!isDesktop ? (
+                  <LocationOnOutlined color="primary" fontSize="large" />
+                ) : (
+                  <MapPaper elevation={3} style={{ width: 150 }}>
+                    <MapTypography variant="subtitle2" gutterBottom>
+                      {place.name}
+                    </MapTypography>
+                    <MapPointer className="pointer" src={place.photo} alt={place.name} />
+                  </MapPaper>
+                )}
+              </MarkerContainer>
+            );
+          }
+          return null; // Skip rendering if place object or coordinates are invalid
+        })}
       </GoogleMapReact>
     </MapContainer>
   );
