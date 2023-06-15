@@ -46,7 +46,7 @@ export const CardsContainer = styled.div`
 
   @media (min-width: 1024px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 `;
 
