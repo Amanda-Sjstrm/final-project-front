@@ -24,7 +24,7 @@ export const Hikes = () => {
             <Card>
               <CardImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtmSk2eRqloHziNaQzGjchIMfhOaI3_2psTA&usqp=CAU" alt="Witchy looking trees" />
               <CardH3>Vandring</CardH3>
-              <CardH4>PRÄSTRASKOGENS NATURRESERVAT</CardH4>
+              <CardH4>PRÄSTASKOGENS NATURRESERVAT</CardH4>
               <a href="#" id="btn">
                 Hitta hit
               </a>
