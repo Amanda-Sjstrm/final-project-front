@@ -43,4 +43,10 @@ export const StyledHeader = styled.header`
     background: #094b65;
     color: #fff;
   }
+
+  @media (max-width: 668px) {
+    #header {
+      padding: 0em 1em;
+    }
+  }
 `;
