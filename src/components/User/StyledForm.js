@@ -6,6 +6,14 @@ export const FormContainer = styled.div`
   height: 100vh;
   margin: 0px auto;
   align-items: center;
+
+  @media (max-width: 668px) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+    }
+  }
 `;
 
 export const RightFormImage = styled.img`
